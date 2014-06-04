@@ -3,6 +3,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('nodes', function() {
+    this.route('node', { path: ':node_id' });
+  });
 });
 
 export default Router;

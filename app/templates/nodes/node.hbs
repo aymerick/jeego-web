@@ -1,0 +1,42 @@
+<h2>{{name}}</h2>
+
+<table class='table'>
+  <tbody>
+    {{#if temperature}}
+      <tr>
+        <td>Temperature</td>
+        <td>{{temperature}} C</td>
+      </tr>
+    {{/if}}
+    {{#if humidity}}
+      <tr>
+        <td>Humidity</td>
+        <td>{{humidity}} %</td>
+      </tr>
+    {{/if}}
+    {{#if light}}
+      <tr>
+        <td>Light</td>
+        <td>{{light}} %</td>
+      </tr>
+    {{/if}}
+    {{#if motion}}
+      <tr>
+        <td>Motion</td>
+        <td>{{motion}}</td>
+      </tr>
+    {{/if}}
+    {{#if low_battery}}
+      <tr>
+        <td>Low battery</td>
+        <td>{{low_battery}}</td>
+      </tr>
+    {{/if}}
+    {{#if vcc}}
+      <tr>
+        <td>Vcc</td>
+        <td>{{vcc}} mv</td>
+      </tr>
+    {{/if}}
+  </tbody>
+</table>

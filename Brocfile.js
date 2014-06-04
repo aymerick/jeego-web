@@ -30,5 +30,7 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   ]
 });
 
+// Moment
+app.import('vendor/moment/moment.js');
 
 module.exports = app.toTree();
