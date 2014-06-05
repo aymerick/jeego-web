@@ -1,20 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
-      <table class='table'>
-        <thead>
-          <tr><th>Nodes</th></tr>
-        </thead>
-        <tbody>
-          {{#each}}
-            <tr>
-              <td>{{#link-to 'nodes.node' this}}{{{name}}}{{/link-to}} <small class='text-muted'>updated {{format-date updated_at}}</small></td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
+    <div class="col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        {{#each}}
+          <li>{{#link-to 'nodes.node' this}}{{{name}}}{{/link-to}}</li>
+        {{/each}}
+      </ul>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10 main">
       {{outlet}}
     </div>
   </div>

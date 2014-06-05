@@ -30,6 +30,12 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   ]
 });
 
+// Bootstrap
+var bootstrapFiles = [ 'affix', 'alert', 'button', 'carousel', 'collapse', 'dropdown', 'tab', 'transition', 'scrollspy', 'modal', 'tooltip', 'popover' ];
+bootstrapFiles.forEach(function(file) {
+  app.import('vendor/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/' + file + '.js');
+});
+
 // Moment
 app.import('vendor/moment/moment.js');
 
