@@ -39,4 +39,9 @@ bootstrapFiles.forEach(function(file) {
 // Moment
 app.import('vendor/moment/moment.js');
 
+// Highcharts
+app.import('vendor/highcharts-release/highcharts.src.js');
+app.import('vendor/highcharts-release/highcharts-more.src.js');
+app.import('vendor/highcharts-release/modules/exporting.src.js');
+
 module.exports = app.toTree();
