@@ -1,4 +1,10 @@
-<h2>{{name}}</h2>
+{{#if isEditing}}
+  {{view 'edit-node' value=name class="editNameInput" focus-out="acceptChanges" insert-newline="acceptChanges"}}
+{{else}}
+  <h2 {{action "editNode" on="doubleClick"}}>{{name}}</h2>
+{{/if}}
+
+<br />
 
 <table class='table'>
   <tbody>
