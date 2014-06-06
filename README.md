@@ -7,30 +7,31 @@ Web interface for Jeego
 Development
 ===========
 
-## Run
+## Installation
 
-```
-$ ember server
-```
+* `git clone` this repository
+* `npm install`
+* `bower install`
 
-Browse: <http://localhost:4200/>
+## Running
 
+* `ember server`
+* Visit your app at <http://localhost:4200>
 
-## Install/Upgrade ember-cli
+## Running Tests
+
+* `ember test`
+* `ember test --server`
+
+## Building production dist
+
+* `ember build --environment=production`
+
+## Upgrade ember-cli
 
 ```
 $ npm install ember-cli --save-dev
-$ ember-cli init
-
-$ bower install --save bootstrap-sass-official
-$ npm install --save-dev broccoli-sass
-
-$ bower install --save moment
-$ bower install --save highcharts-release
+$ ember init
 ```
 
-## Build production dist
-
-```
-$ ember build --environment=production
-```
+Fix conflicts.
