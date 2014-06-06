@@ -1,4 +1,4 @@
-var NodesNodeController = Ember.ObjectController.extend({
+export default Ember.ObjectController.extend({
   isEditing: false,
 
   actions: {
@@ -13,5 +13,3 @@ var NodesNodeController = Ember.ObjectController.extend({
     }
   }
 });
-
-export default NodesNodeController;
