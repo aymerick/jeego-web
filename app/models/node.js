@@ -11,4 +11,8 @@ var Node = DS.Model.extend({
   vcc:          DS.attr('number')
 });
 
+Node.reopenClass({
+  SENSORS: [ 'temperature', 'humidity', 'light', 'motion', 'low_battery', 'vcc' ]
+});
+
 export default Node;

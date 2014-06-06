@@ -14,39 +14,41 @@
     </tr>
     {{#if temperature}}
       <tr>
-        <td>Temperature</td>
+        <td>{{#link-to 'node.temperature' this}}Temperature{{/link-to}}</td>
         <td>{{temperature}} C</td>
       </tr>
     {{/if}}
     {{#if humidity}}
       <tr>
-        <td>Humidity</td>
+        <td>{{#link-to 'node.humidity' this}}Humidity{{/link-to}}</td>
         <td>{{humidity}} %</td>
       </tr>
     {{/if}}
     {{#if light}}
       <tr>
-        <td>Light</td>
+        <td>{{#link-to 'node.light' this}}Light{{/link-to}}</td>
         <td>{{light}} %</td>
       </tr>
     {{/if}}
     {{#if motion}}
       <tr>
-        <td>Motion</td>
+        <td>{{#link-to 'node.motion' this}}Motion{{/link-to}}</td>
         <td>{{motion}}</td>
       </tr>
     {{/if}}
     {{#if low_battery}}
       <tr>
-        <td>Low battery</td>
+        <td>{{#link-to 'node.low_battery' this}}Low Battery{{/link-to}}</td>
         <td>{{low_battery}}</td>
       </tr>
     {{/if}}
     {{#if vcc}}
       <tr>
-        <td>Vcc</td>
+        <td>{{#link-to 'node.vcc' this}}Vcc{{/link-to}}</td>
         <td>{{vcc}} mv</td>
       </tr>
     {{/if}}
   </tbody>
 </table>
+
+{{outlet}}
