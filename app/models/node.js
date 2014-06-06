@@ -1,5 +1,3 @@
-import randomNumber from "jeego-web/utils/random-number";
-
 var Node = DS.Model.extend({
   kind:         DS.attr('number'),
   updated_at:   DS.attr('iso-date'),
