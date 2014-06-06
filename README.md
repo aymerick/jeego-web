@@ -13,10 +13,13 @@ Development
 * `npm install`
 * `bower install`
 
+Cf. <http://iamstef.net/ember-cli/>
+
 ## Running
 
 * `ember server`
-* Visit your app at <http://localhost:4200>
+* Visit the app at <http://localhost:4200>
+* Test the app at <http://localhost:4200/tests>
 
 ## Running Tests
 
@@ -35,3 +38,7 @@ $ ember init
 ```
 
 Fix conflicts.
+
+```
+$ npm install
+```
