@@ -1,5 +1,5 @@
 export default Ember.Route.extend({
-  model: function(params) {
+  model: function() {
     var node = this.modelFor("node");
 
     return { 'series': [{
