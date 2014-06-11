@@ -29,7 +29,7 @@ export default Ember.Component.extend({
       }
     };
 
-    if (!Ember.empty(this.get('series'))) {
+    if (!Ember.isEmpty(this.get('series'))) {
       result['series'] = this.get('series');
     }
 
