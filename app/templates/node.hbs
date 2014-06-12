@@ -1,7 +1,7 @@
 {{#if isEditing}}
   {{view 'edit-node' value=name class="editNameInput" focus-out="acceptChanges" insert-newline="acceptChanges"}}
 {{else}}
-  <h2 {{action "editNode" on="doubleClick"}}>{{name}}</h2>
+  <h2 {{action "editNode" on="doubleClick"}}>{{#if name}}{{name}}{{else}}NO NAME{{/if}}</h2>
 {{/if}}
 
 <br />
