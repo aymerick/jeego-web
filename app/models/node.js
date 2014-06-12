@@ -62,11 +62,11 @@ Node.reopen({
     });
   },
 
-  temperatureSerieData: function() {
-    return (this.get('logs') || [ ]).map(function(log){
-      return [ log.get('at').getTime(), log.get('temperature') ];
-    });
-  },
+  isMissingLogs: Ember.computed.none('logs'),
+
+  temperatureSerieData: Ember.computed.map('logs', function(log) {
+    return [ log.get('at').getTime(), log.get('temperature') ];
+  }),
 
   hasSensor: function(sensor) {
     return Node.SENSORS_FOR_KIND[this.get('kind')].contains(sensor);
