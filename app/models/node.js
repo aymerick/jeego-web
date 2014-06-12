@@ -30,6 +30,44 @@ Node.reopenClass({
 
 // instance methods and properties
 Node.reopen({
+  loadLogs: function() {
+    var adapter = this.store.adapterFor('node');
+    var url     = adapter.get('host');
+
+    if (!Ember.isEmpty(adapter.get('namespace'))) {
+      url += '/' + adapter.get('namespace');
+    }
+
+    url += '/nodes/' + this.get('id') + '/logs';
+
+    var self = this;
+
+    return $.getJSON(url).then(function(data) {
+      var result = [ ];
+
+      data.logs.forEach(function(logData) {
+        // use serializer to normalize data
+        var serializer = self.store.serializerFor('log');
+        var model = self.store.modelFor('log');
+        logData = serializer.normalize(model, logData);
+
+        // push log to store
+        var log = self.store.push('log', logData);
+
+        result.pushObject(log);
+      });
+
+      // set logs to node instance
+      self.set('logs', result);
+    });
+  },
+
+  temperatureSerieData: function() {
+    return (this.get('logs') || [ ]).map(function(log){
+      return [ log.get('at').getTime(), log.get('temperature') ];
+    });
+  },
+
   hasSensor: function(sensor) {
     return Node.SENSORS_FOR_KIND[this.get('kind')].contains(sensor);
   },
