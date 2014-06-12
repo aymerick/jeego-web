@@ -12,37 +12,37 @@
       <td>Last seen</td>
       <td>{{format-date last_seen_at}}</td>
     </tr>
-    {{#if temperature}}
+    {{#if hasTemperature}}
       <tr>
         <td>{{#link-to 'node.temperature' this}}Temperature{{/link-to}}</td>
         <td>{{temperature}} C</td>
       </tr>
     {{/if}}
-    {{#if humidity}}
+    {{#if hasHumidity}}
       <tr>
         <td>{{#link-to 'node.humidity' this}}Humidity{{/link-to}}</td>
         <td>{{humidity}} %</td>
       </tr>
     {{/if}}
-    {{#if light}}
+    {{#if hasLight}}
       <tr>
         <td>{{#link-to 'node.light' this}}Light{{/link-to}}</td>
         <td>{{light}} %</td>
       </tr>
     {{/if}}
-    {{#if motion}}
+    {{#if hasMotion}}
       <tr>
         <td>{{#link-to 'node.motion' this}}Motion{{/link-to}}</td>
         <td>{{motion}}</td>
       </tr>
     {{/if}}
-    {{#if low_battery}}
+    {{#if hasLowBattery}}
       <tr>
         <td>{{#link-to 'node.low_battery' this}}Low Battery{{/link-to}}</td>
         <td>{{low_battery}}</td>
       </tr>
     {{/if}}
-    {{#if vcc}}
+    {{#if hasVcc}}
       <tr>
         <td>{{#link-to 'node.vcc' this}}Vcc{{/link-to}}</td>
         <td>{{vcc}} mv</td>
