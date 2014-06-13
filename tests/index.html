@@ -34,10 +34,12 @@
     <div id="qunit-fixture"></div>
 
     <script>
-      window.ENV = {{ENV}};
+      window.JeegoWebENV = {{ENV}};
+      window.EmberENV = window.JeegoWebENV.EmberENV;
     </script>
     <script src="assets/qunit.js"></script>
     <script src="assets/qunit-notifications.js"></script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/jeego-web.js"></script>
     <script src="testem.js"></script>
     <script>

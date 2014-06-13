@@ -1,11 +1,6 @@
-jeego-web
-=========
+# Jeego-web
 
-Web interface for Jeego
-
-
-Development
-===========
+Web interface for Jeego.
 
 ## Installation
 
@@ -13,18 +8,20 @@ Development
 * `npm install`
 * `bower install`
 
-Cf. <http://iamstef.net/ember-cli/>
-
 ## Running
 
 * `ember server`
-* Visit the app at <http://localhost:4200>
+* Visit the app at <http://localhost:4200>.
 * Test the app at <http://localhost:4200/tests>
 
 ## Running Tests
 
 * `ember test`
 * `ember test --server`
+
+## Building
+
+* `ember build`
 
 ## Building production dist
 
@@ -41,4 +38,7 @@ Fix conflicts.
 
 ```
 $ npm install
+$ bower install
 ```
+
+For more information on using ember-cli, visit [http://iamstef.net/ember-cli/](http://iamstef.net/ember-cli/).

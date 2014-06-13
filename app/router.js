@@ -1,7 +1,8 @@
+import Ember from 'ember';
 import Node from './models/node';
 
 var Router = Ember.Router.extend({
-  location: ENV.locationType
+  location: JeegoWebENV.locationType
 });
 
 Router.map(function() {

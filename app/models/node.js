@@ -1,4 +1,4 @@
-var Node = DS.Model.extend({
+var NodeModel = DS.Model.extend({
   kind:         DS.attr('number'),
   updated_at:   DS.attr('iso-date'),
   last_seen_at: DS.attr('iso-date'),
@@ -15,7 +15,7 @@ var Node = DS.Model.extend({
 });
 
 // class methods and properties
-Node.reopenClass({
+NodeModel.reopenClass({
   SENSORS: [ 'temperature', 'humidity', 'light', 'motion', 'low_battery', 'vcc' ],
 
   // @todo Receive that table from the server
@@ -29,7 +29,7 @@ Node.reopenClass({
 });
 
 // instance methods and properties
-Node.reopen({
+NodeModel.reopen({
   loadLogs: function() {
     var adapter = this.store.adapterFor('node');
     var url     = adapter.get('host');
@@ -69,7 +69,7 @@ Node.reopen({
   }),
 
   hasSensor: function(sensor) {
-    return Node.SENSORS_FOR_KIND[this.get('kind')].contains(sensor);
+    return NodeModel.SENSORS_FOR_KIND[this.get('kind')].contains(sensor);
   },
 
   hasTemperature: function() {
@@ -97,4 +97,4 @@ Node.reopen({
   }.property('kind')
 });
 
-export default Node;
+export default NodeModel;
