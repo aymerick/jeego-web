@@ -1,24 +1,39 @@
 export default Ember.Component.extend({
   chartSettings: function() {
     var result = {
-      title: {
-        text: "Temperature"
+      chart: {
+          type: 'spline'
       },
 
       xAxis: {
-        type: 'datetime'
+        type: 'datetime',
+        labels: {
+            overflow: 'justify'
+        }
       },
 
       yAxis: {
         'title': {
-          text: 'Temperature (°C)'
-        }
+          text: 'Temperature'
+        },
+        labels: {
+          format: '{value} °C'
+        },
+        minPadding: 0.5
       },
 
       tooltip: {
         valueSuffix: '°C',
         crosshairs: true,
         shared: true
+      },
+
+      plotOptions: {
+          spline: {
+              marker: {
+                  enabled: false
+              }
+          }
       },
 
       legend: {
@@ -28,6 +43,12 @@ export default Ember.Component.extend({
         borderWidth: 0
       }
     };
+
+    if (!Ember.isEmpty(this.get('title'))) {
+      result['title'] = { text: this.get('title') };
+    } else {
+      result['title'] = { text: "Temperature" };
+    }
 
     if (!Ember.isEmpty(this.get('series'))) {
       result['series'] = this.get('series');
