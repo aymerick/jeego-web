@@ -8,7 +8,10 @@ var Log = DS.Model.extend({
   light:       DS.attr('number'),
   motion:      DS.attr('boolean'),
   low_battery: DS.attr('boolean'),
-  vcc:         DS.attr('number')
+  vcc:         DS.attr('number'),
+
+  // relationships
+  node: DS.belongsTo('node')
 });
 
 export default Log;

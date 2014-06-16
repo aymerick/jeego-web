@@ -11,7 +11,10 @@ var NodeModel = DS.Model.extend({
   light:        DS.attr('number'),
   motion:       DS.attr('boolean'),
   low_battery:  DS.attr('boolean'),
-  vcc:          DS.attr('number')
+  vcc:          DS.attr('number'),
+
+  // relationships
+  logs: DS.hasMany('log', {'async': true})
 });
 
 // class methods and properties
@@ -30,43 +33,11 @@ NodeModel.reopenClass({
 
 // instance methods and properties
 NodeModel.reopen({
-  loadLogs: function() {
-    var adapter = this.store.adapterFor('node');
-    var url     = adapter.get('host');
-
-    if (!Ember.isEmpty(adapter.get('namespace'))) {
-      url += '/' + adapter.get('namespace');
-    }
-
-    url += '/nodes/' + this.get('id') + '/logs';
-
-    var self = this;
-
-    return $.getJSON(url).then(function(data) {
-      var result = [ ];
-
-      data.logs.forEach(function(logData) {
-        // use serializer to normalize data
-        var serializer = self.store.serializerFor('log');
-        var model = self.store.modelFor('log');
-        logData = serializer.normalize(model, logData);
-
-        // push log to store
-        var log = self.store.push('log', logData);
-
-        result.pushObject(log);
-      });
-
-      // set logs to node instance
-      self.set('logs', result);
-    });
-  },
-
-  isMissingLogs: Ember.computed.none('logs'),
-
   temperatureSerieData: Ember.computed.map('logs', function(log) {
     return [ log.get('at').getTime(), log.get('temperature') ];
   }),
+
+  // Sensors
 
   hasSensor: function(sensor) {
     return NodeModel.SENSORS_FOR_KIND[this.get('kind')].contains(sensor);
