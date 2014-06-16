@@ -1,6 +1,6 @@
 export default Ember.Route.extend({
   model: function(){
-    return this.store.find('node');
+    return this.store.findAll('node');
   }
 
   // NOTE: seems broken (cf. http://discuss.emberjs.com/t/using-redirect-for-default-child-route-broken-in-1-4/4681)

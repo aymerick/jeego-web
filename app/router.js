@@ -6,8 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('nodes', function() {
-    this.resource('node', { path: '/:node_id' }, function() {
+  this.resource('nodes', { path: '/' }, function() {
+    this.resource('node', { path: '/nodes/:node_id' }, function() {
       Node.SENSORS.forEach(function(sensor) {
         this.route(sensor);
       }, this);
